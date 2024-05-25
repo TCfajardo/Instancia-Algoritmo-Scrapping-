@@ -53,8 +53,8 @@ class MercadoLibreCrawler(CrawlSpider):
     
         item.add_xpath('titulo', '//h1/text()', MapCompose(lambda i: i.replace('\n', ' ').replace('\r', ' ').strip()))
     
-        title = item.get_xpath('//h1/text()')  # Cambio aquí
-        if not any(keyword in t.lower() for t in title):  # Cambio aquí
+        title = item.get_xpath('//h1/text()') 
+        if not any(keyword in t.lower() for t in title): 
             return
 
         item.add_xpath('descripcion', '//div[@class="ui-pdp-description"]/p/text()', MapCompose(lambda i: i.replace('\n', ' ').replace('\r', ' ').strip()))
